@@ -1,0 +1,1 @@
+export 'icomoon_icons.dart';
