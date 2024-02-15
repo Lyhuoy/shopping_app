@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   await hiveInitialize();
 
   // checking route
@@ -16,7 +16,7 @@ void main() async {
   //     AppPages.init = AppRoutes.main;
   //   }
   // }
-  AppPages.init = AppRoutes.main;
+  AppPages.init = AppRoutes.onboarding;
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -29,8 +29,7 @@ void main() async {
 
 /// initialize hive
 Future<void> hiveInitialize() async {
-  final appDocumentDirectory =
-      await path_provider.getApplicationDocumentsDirectory();
+  final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDirectory.path);
   Hive.registerAdapter(LanguageCacheModelAdapter());
 }

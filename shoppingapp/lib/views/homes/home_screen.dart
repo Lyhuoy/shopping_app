@@ -10,8 +10,7 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   // ignore: unused_field
   final _controller = Get.put(HomeScreenController());
   final _mainKey = GlobalKey<ScaffoldState>();
@@ -36,38 +35,35 @@ class HomeScreenState extends State<HomeScreen>
           title: smallScreen ? _appTitle : null,
         ),
         body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (!smallScreen)
-                Container(
-                  padding:
-                      const EdgeInsets.only(left: 15, bottom: 15, right: 15),
-                  color: Colors.white,
-                  child: _appTitle,
-                ),
-              Expanded(
-                child: SmartRefresher(
-                  controller: _controller.homeRefreshController,
-                  onRefresh: _controller.onHomeRefresh,
-                ),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (!smallScreen)
+              Container(
+                padding: const EdgeInsets.only(left: 15, bottom: 15, right: 15),
+                color: Colors.white,
+                child: _appTitle,
               ),
-            ],
-        
+            Expanded(
+              child: SmartRefresher(
+                controller: _controller.homeRefreshController,
+                onRefresh: _controller.onHomeRefresh,
+              ),
+            ),
+          ],
         ));
   }
 
   Widget get _appTitle => RichText(
         text: TextSpan(
-            style: TextStyle(
-              color: AppColors.appBarTextColor,
-              fontWeight: FontWeight.w300,
-              fontSize: 21,
-            ),
-            children: const [
-              TextSpan(text: "Wellcome "),
-              TextSpan(
-                  text: "Kunthy",
-                  style: TextStyle(fontWeight: FontWeight.w500))
-            ]),
+          style: TextStyle(
+            color: AppColors.appBarTextColor,
+            fontWeight: FontWeight.w300,
+            fontSize: 21,
+          ),
+          children: const [
+            TextSpan(text: "Wellcome "),
+            TextSpan(text: "Kunthy", style: TextStyle(fontWeight: FontWeight.w500))
+          ],
+        ),
       );
 }

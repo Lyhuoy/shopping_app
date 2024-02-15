@@ -22,46 +22,44 @@ class HomeScreenDrawer extends StatelessWidget {
         child: SafeArea(
           top: false,
           child: Stack(
-              children: [
-                Positioned.fill(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        _userProfile(),
-                        ContainerDevider.blankSpaceL,
-                        
-                        ContainerDevider.blankSpaceL,
-                        HomeScreenDrawerListItem(
-                            onTap: () => _controller.logout(),
-                            trialing: const Icon(
-                              Icons.power_settings_new_rounded,
-                              color: AppColors.error,
-                              size: 18,
-                            ),
-                            label: "${"Logout".tr} ",
-                            labelColor: AppColors.error,
-                            margin: const EdgeInsets.symmetric(horizontal: 15)),
-                        ContainerDevider.blankSpaceL,
-                      ],
-                    ),
+            children: [
+              Positioned.fill(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _userProfile(),
+                      ContainerDevider.blankSpaceL,
+                      ContainerDevider.blankSpaceL,
+                      HomeScreenDrawerListItem(
+                          onTap: () => _controller.logout(),
+                          trialing: const Icon(
+                            Icons.power_settings_new_rounded,
+                            color: AppColors.error,
+                            size: 18,
+                          ),
+                          label: "${"Logout".tr} ",
+                          labelColor: AppColors.error,
+                          margin: const EdgeInsets.symmetric(horizontal: 15)),
+                      ContainerDevider.blankSpaceL,
+                    ],
                   ),
                 ),
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  child: SafeArea(
-                    minimum: const EdgeInsets.all(5),
-                    child: AppButton.circle(
-                      color: Colors.transparent,
-                      iconColor: Colors.white,
-                      onPressed: () => Get.back(),
-                      iconData: Icons.close,
-                    ),
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                child: SafeArea(
+                  minimum: const EdgeInsets.all(5),
+                  child: AppButton.circle(
+                    color: Colors.transparent,
+                    iconColor: Colors.white,
+                    onPressed: () => Get.back(),
+                    iconData: Icons.close,
                   ),
-                )
-              ],
-            ),
-        
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -84,7 +82,7 @@ class HomeScreenDrawer extends StatelessWidget {
                   color: AppColors.primary,
                   image: DecorationImage(
                     image: NetworkImage(
-                      "https://media.licdn.com/dms/image/C4D03AQGQrT_vUaFx1w/profile-displayphoto-shrink_800_800/0/1653714783617?e=2147483647&v=beta&t=vMt4lks0uo6rksb8CwzS48RH-rRkZoiXwOwTQusbcBk",
+                      "https://static.mothership.sg/1/2023/06/IMG_0931.jpg",
                     ),
                     fit: BoxFit.cover,
                   )),
@@ -95,8 +93,7 @@ class HomeScreenDrawer extends StatelessWidget {
                   tileMode: TileMode.mirror,
                 ),
                 child: Container(
-                  decoration:
-                      BoxDecoration(color: Colors.black.withOpacity(0.55)),
+                  decoration: BoxDecoration(color: Colors.black.withOpacity(0.55)),
                 ),
               ),
             ),
@@ -122,9 +119,8 @@ class HomeScreenDrawer extends StatelessWidget {
                             color: Colors.white,
                           )),
                       child: Image.network(
-                        "https://media.licdn.com/dms/image/C4D03AQGQrT_vUaFx1w/profile-displayphoto-shrink_800_800/0/1653714783617?e=2147483647&v=beta&t=vMt4lks0uo6rksb8CwzS48RH-rRkZoiXwOwTQusbcBk",
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Icon(
+                        "https://static.mothership.sg/1/2023/06/IMG_0931.jpg",
+                        errorBuilder: (context, error, stackTrace) => const Icon(
                           Icons.person,
                           size: 50,
                           color: Colors.white,
