@@ -52,6 +52,7 @@ dependencies:
 
   device_info_plus: ^9.1.1
   smooth_page_indicator: ^1.1.0
+  otp_text_field: ^1.1.3
 
   # all control componnents declare in this blocks
   lottie: ^2.1.0
@@ -93,6 +94,7 @@ dependencies:
   url_launcher: ^6.1.7
   simple_animations: ^4.0.1
   blinking_text: ^1.0.2
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:

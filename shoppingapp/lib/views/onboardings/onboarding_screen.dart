@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -50,7 +52,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               textDirection: TextDirection.ltr,
               effect: const WormEffect(
                 dotColor: Colors.grey,
-                activeDotColor: Colors.purpleAccent,
+                activeDotColor: Color(0xFF9775FA),
                 dotHeight: 12,
                 dotWidth: 12,
               ),
@@ -68,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: Colors.purpleAccent,
+                            color: const Color(0xFF9775FA),
                           ),
                           child: TextButton(
                             onPressed: () {
@@ -93,7 +95,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           },
                           child: const Text(
                             'Skip',
-                            style: TextStyle(color: Colors.purpleAccent),
+                            style: TextStyle(color: Color(0xFF9775FA)),
                           ),
                         ),
                       ],
@@ -105,11 +107,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: Colors.purpleAccent,
+                        color: const Color(0xFF9775FA),
                       ),
                       child: TextButton(
                         onPressed: () {
-                          // navigate to main page
+                          Get.offAll(() => const StartScreen());
                         },
                         child: const Text(
                           'Get Started',
