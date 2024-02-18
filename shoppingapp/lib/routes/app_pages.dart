@@ -8,6 +8,9 @@ import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:shoppingapp/views/authentication/verification_code_screen.dart';
 import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
+import 'package:shoppingapp/views/authentication/address_form.dart';
+import 'package:shoppingapp/views/payment/add_new_card.dart';
+
 part 'app_routes.dart';
 
 class AppPages {
@@ -54,6 +57,14 @@ class AppPages {
     GetPage(
       name: AppRoutes.newPassword,
       page: () => NewPasswordScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.addressForm,
+      page: () => AddressForm(),
+    ),
+    GetPage(
+      name: AppRoutes.addNewCard,
+      page: () => AddNewCard(),
     ),
   ];
 }
