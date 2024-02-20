@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/products/list.dart';
+
 
 class HomeWelcomeScreen extends StatelessWidget {
   const HomeWelcomeScreen({super.key});
@@ -51,9 +54,18 @@ class HomeWelcomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
-                              child: Text(
-                                "Women",
-                                style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold, fontSize: 16),
+                              // child: Text(
+                              //   "Women",
+                                // style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold, fontSize: 16),
+                              // ),
+                              child: TextButton(
+                                onPressed: () {
+                                  Get.offAll(() => const ProductList());
+                                },
+                                child: const Text(
+                                  'Women',
+                                  style: TextStyle(color: Colors.red),
+                                ),
                               ),
                             ),
                           ),
