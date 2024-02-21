@@ -6,6 +6,7 @@ import 'package:shoppingapp/views/authentication/new_password_screen.dart';
 import 'package:shoppingapp/views/authentication/sign_up_screen.dart';
 import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:shoppingapp/views/authentication/verification_code_screen.dart';
+import 'package:shoppingapp/views/cart/cart_screen.dart';
 import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
 import 'package:shoppingapp/views/products/product_detail_screen.dart';
@@ -59,6 +60,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.productDetail,
       page: () => const ProductDetailScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.cart,
+      page: () => const CartScreen(),
     )
   ];
 }

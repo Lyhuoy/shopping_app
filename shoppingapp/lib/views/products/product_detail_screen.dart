@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/cart/cart_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
@@ -286,15 +288,20 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Container(
-            height: 80,
-            decoration: const BoxDecoration(
-              color: Color(0xFF9775FA),
-            ),
-            child: const Center(
-              child: Text(
-                "Add to Cart",
-                style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+          GestureDetector(
+            onTap: () {
+              Get.to(() => const CartScreen());
+            },
+            child: Container(
+              height: 80,
+              decoration: const BoxDecoration(
+                color: Color(0xFF9775FA),
+              ),
+              child: const Center(
+                child: Text(
+                  "Add to Cart",
+                  style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),
@@ -316,16 +323,12 @@ class HeaderWidget extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
-        image: const DecorationImage(
-          alignment: Alignment.bottomCenter,
-          image: AssetImage('assets/images/man.png'),
-          fit: BoxFit.contain,
-        ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               decoration: BoxDecoration(
@@ -337,7 +340,9 @@ class HeaderWidget extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back_rounded),
               ),
             ),
-            const Spacer(),
+            Expanded(
+              child: Image.asset("assets/images/man.png", fit: BoxFit.contain),
+            ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
