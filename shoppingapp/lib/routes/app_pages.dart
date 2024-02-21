@@ -8,6 +8,7 @@ import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:shoppingapp/views/authentication/verification_code_screen.dart';
 import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
+import 'package:shoppingapp/views/products/product_detail_screen.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -53,7 +54,11 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.newPassword,
-      page: () => NewPasswordScreen(),
+      page: () => const NewPasswordScreen(),
     ),
+    GetPage(
+      name: AppRoutes.productDetail,
+      page: () => const ProductDetailScreen(),
+    )
   ];
 }
