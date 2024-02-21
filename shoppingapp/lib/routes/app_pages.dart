@@ -83,7 +83,7 @@ class AppPages {
       page: () => const PaymentScreen(),
     ),
     GetPage(
-      name: AppRoutes.cardScreen,
+      name: AppRoutes.card,
       page: () => const CardScreen(),
     ),
     GetPage(
