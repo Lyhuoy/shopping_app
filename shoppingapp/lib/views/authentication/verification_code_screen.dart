@@ -102,7 +102,6 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () {
                       Get.to(() => const NewPasswordScreen());
