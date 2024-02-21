@@ -1,3 +1,4 @@
+import 'package:shoppingapp/cache/users/models/user_caches_model.dart';
 import 'package:shoppingapp/core.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -32,4 +33,5 @@ Future<void> hiveInitialize() async {
   final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDirectory.path);
   Hive.registerAdapter(LanguageCacheModelAdapter());
+  Hive.registerAdapter(UserCacheModelAdapter());
 }
