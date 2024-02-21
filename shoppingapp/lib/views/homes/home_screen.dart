@@ -11,8 +11,7 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   // ignore: unused_field
   final _controller = Get.put(HomeScreenController());
   bool smallScreen = Get.height < 600;
@@ -48,7 +47,7 @@ class HomeScreenState extends State<HomeScreen>
           HomeBrandView(brandList: _controller.brandList),
           AppDevider.blankSpaceL,
           HomeProductView(
-            prodcutList:_controller.homeProduct,
+            prodcutList: _controller.homeProduct,
           )
         ],
       ),
@@ -67,8 +66,7 @@ class HomeScreenState extends State<HomeScreen>
               text: "${_controller.userName} \n",
             ),
             TextSpan(
-              text:
-                  "WellcomeToAppName".tr.replaceAll("AppName", "Shopping App"),
+              text: "WellcomeToAppName".tr.replaceAll("AppName", "Shopping App"),
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 13,
