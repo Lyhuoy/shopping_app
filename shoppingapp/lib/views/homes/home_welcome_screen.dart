@@ -12,9 +12,11 @@ class HomeWelcomeScreen extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
+          color: const Color(0xFF9775FA),
           image: DecorationImage(
             // replace with your own image
-            image: NetworkImage('https://www.popular.com.kh/wp-content/uploads/2023/08/365407130_841042997587791_2351583943190246669_n.jpg'),
+            image: NetworkImage(
+                'https://static.vecteezy.com/system/resources/previews/024/524/036/non_2x/man-carrying-shopping-bags-free-png.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -24,7 +26,8 @@ class HomeWelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(25),
@@ -33,7 +36,8 @@ class HomeWelcomeScreen extends StatelessWidget {
                   children: [
                     const Text(
                       "Look Good, Feel Good",
-                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
                     const Text(
@@ -55,7 +59,10 @@ class HomeWelcomeScreen extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 "Women",
-                                style: TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold, fontSize: 16),
+                                style: TextStyle(
+                                    color: Colors.grey.shade600,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
                               ),
                             ),
                           ),
@@ -72,7 +79,10 @@ class HomeWelcomeScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "Men",
-                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
                               ),
                             ),
                           ),
@@ -87,7 +97,10 @@ class HomeWelcomeScreen extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Skip",
-                          style: TextStyle(color: Colors.grey.shade400, fontWeight: FontWeight.bold, fontSize: 16),
+                          style: TextStyle(
+                              color: Colors.grey.shade400,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ),
                       ),
                     )
