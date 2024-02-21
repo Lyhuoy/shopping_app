@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoppingapp/views/authentication/address_form.dart';
 import 'package:shoppingapp/views/payment/payment_screen.dart';
+import 'package:shoppingapp/views/products/order_confirm.screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -519,7 +520,9 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => const OrderConfirmScreen());
+            },
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: 70,

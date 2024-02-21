@@ -16,6 +16,12 @@ abstract class AppRoutes {
   static const productDetail = '/product-detail';
   static const cart = '/cart';
   static const payment = '/payment';
+<<<<<<< HEAD
   static const addressForm = '/addressForm';
   static const addNewCard = '/addNewCard';
 }
+=======
+  static const card = '/card';
+  static const orderConfirm = '/order-confirm';
+}
+>>>>>>> e054c6b (card screen)
