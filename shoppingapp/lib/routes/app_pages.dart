@@ -10,7 +10,7 @@ import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
 import 'package:shoppingapp/views/authentication/address_form.dart';
 import 'package:shoppingapp/views/payment/add_new_card.dart';
-
+import 'package:shoppingapp/views/products/product_detail_screen.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -56,7 +56,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.newPassword,
-      page: () => NewPasswordScreen(),
+      page: () => const NewPasswordScreen(),
     ),
     GetPage(
       name: AppRoutes.addressForm,
@@ -66,5 +66,9 @@ class AppPages {
       name: AppRoutes.addNewCard,
       page: () => AddNewCard(),
     ),
+    GetPage(
+      name: AppRoutes.productDetail,
+      page: () => const ProductDetailScreen(),
+    )
   ];
 }
