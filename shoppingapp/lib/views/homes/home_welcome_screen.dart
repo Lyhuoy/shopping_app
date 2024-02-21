@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/homes/home_main_screen.dart';
 
 class HomeWelcomeScreen extends StatelessWidget {
   const HomeWelcomeScreen({super.key});
@@ -78,10 +80,16 @@ class HomeWelcomeScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    Center(
-                      child: Text(
-                        "Skip",
-                        style: TextStyle(color: Colors.grey.shade400, fontWeight: FontWeight.bold, fontSize: 16),
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to the next screen
+                        Get.to(() => const HomeMainScreen());
+                      },
+                      child: Center(
+                        child: Text(
+                          "Skip",
+                          style: TextStyle(color: Colors.grey.shade400, fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
                       ),
                     )
                   ],

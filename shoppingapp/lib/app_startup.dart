@@ -18,13 +18,13 @@ class AppStartup extends StatelessWidget {
         dialogTheme: const DialogTheme(
           titleTextStyle: TextStyle(fontFamily: AppFonts.outletFamily),
         ),
-        textTheme:const TextTheme(
-          titleLarge:TextStyle(fontFamily: AppFonts.outletFamily),
-          titleMedium:TextStyle(fontFamily: AppFonts.outletFamily),
-          titleSmall:TextStyle(fontFamily: AppFonts.outletFamily),
-          bodyLarge:TextStyle(fontFamily: AppFonts.outletFamily),
-          bodyMedium:TextStyle(fontFamily: AppFonts.outletFamily),
-          bodySmall:TextStyle(fontFamily: AppFonts.outletFamily),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontFamily: AppFonts.outletFamily),
+          titleMedium: TextStyle(fontFamily: AppFonts.outletFamily),
+          titleSmall: TextStyle(fontFamily: AppFonts.outletFamily),
+          bodyLarge: TextStyle(fontFamily: AppFonts.outletFamily),
+          bodyMedium: TextStyle(fontFamily: AppFonts.outletFamily),
+          bodySmall: TextStyle(fontFamily: AppFonts.outletFamily),
         ),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: const TextStyle(color: Color.fromARGB(115, 113, 107, 107)),
@@ -42,23 +42,9 @@ class AppStartup extends StatelessWidget {
           ),
           focusColor: AppColors.primary,
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-                overlayColor:
-                    MaterialStateProperty.all(Colors.white.withOpacity(0.2)))),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-            style: ButtonStyle(
-                overlayColor: MaterialStateProperty.all(
-                    AppColors.primary.withOpacity(0.2)))),
-        appBarTheme: AppBarTheme(
-            elevation: 0,
-            backgroundColor: AppColors.appBarColor,
-            toolbarHeight: 50,
-            centerTitle: false,
-            titleTextStyle: TextStyle(
-                color: AppColors.appBarTextColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold)),
+        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.white.withOpacity(0.2)))),
+        outlinedButtonTheme: OutlinedButtonThemeData(style: ButtonStyle(overlayColor: MaterialStateProperty.all(AppColors.primary.withOpacity(0.2)))),
+        appBarTheme: AppBarTheme(elevation: 0, backgroundColor: AppColors.appBarColor, toolbarHeight: 50, centerTitle: false, titleTextStyle: TextStyle(color: AppColors.appBarTextColor, fontSize: 15, fontWeight: FontWeight.bold)),
         primaryColor: AppColors.primary,
         colorScheme: const ColorScheme(
           brightness: Brightness.light,

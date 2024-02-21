@@ -6,7 +6,11 @@ import 'package:shoppingapp/views/authentication/new_password_screen.dart';
 import 'package:shoppingapp/views/authentication/sign_up_screen.dart';
 import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:shoppingapp/views/authentication/verification_code_screen.dart';
+import 'package:shoppingapp/views/homes/cart_screen.dart';
+import 'package:shoppingapp/views/homes/home_main_screen.dart';
 import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
+import 'package:shoppingapp/views/homes/wallet_screen.dart';
+import 'package:shoppingapp/views/homes/wishlist_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
 part 'app_routes.dart';
 
@@ -53,7 +57,23 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.newPassword,
-      page: () => NewPasswordScreen(),
+      page: () => const NewPasswordScreen(),
     ),
+    GetPage(
+      name: AppRoutes.homemain,
+      page: () => const HomeMainScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.wishlist,
+      page: () => const WishListScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.cart,
+      page: () => const CartScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.wallet,
+      page: () => const WalletScreen(),
+    )
   ];
 }
