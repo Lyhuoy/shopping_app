@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/authentication/address_form.dart';
+import 'package:shoppingapp/views/payment/payment_screen.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -315,17 +318,27 @@ class CartScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Row(
+                      Row(
                         children: [
-                          Text(
+                          const Text(
                             "Delivery Address",
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
-                          Spacer(),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                            size: 20,
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AddressForm(),
+                                ),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
                           ),
                         ],
                       ),
@@ -374,17 +387,22 @@ class CartScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Payment Method",
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey,
-                            size: 20,
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(const PaymentScreen());
+                            },
+                            child: const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
                           ),
                         ],
                       ),
@@ -500,24 +518,27 @@ class CartScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 70,
-            decoration: const BoxDecoration(
-              color: Color(0xFF9775FA),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Checkout",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 70,
+              decoration: const BoxDecoration(
+                color: Color(0xFF9775FA),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Checkout",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

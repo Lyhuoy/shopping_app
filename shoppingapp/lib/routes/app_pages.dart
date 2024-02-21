@@ -11,6 +11,7 @@ import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
 import 'package:shoppingapp/views/authentication/address_form.dart';
 import 'package:shoppingapp/views/payment/add_new_card.dart';
+import 'package:shoppingapp/views/payment/payment_screen.dart';
 import 'package:shoppingapp/views/products/product_detail_screen.dart';
 part 'app_routes.dart';
 
@@ -61,11 +62,11 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.addressForm,
-      page: () => AddressForm(),
+      page: () => const AddressForm(),
     ),
     GetPage(
       name: AppRoutes.addNewCard,
-      page: () => AddNewCard(),
+      page: () => const AddNewCard(),
     ),
     GetPage(
       name: AppRoutes.productDetail,
@@ -74,6 +75,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.cart,
       page: () => const CartScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.payment,
+      page: () => const PaymentScreen(),
     )
   ];
 }
