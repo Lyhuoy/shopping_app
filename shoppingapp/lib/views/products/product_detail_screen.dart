@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoppingapp/core.dart';
 import 'package:shoppingapp/views/cart/cart_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
-
+  const ProductDetailScreen({super.key, this.item});
+  final ProductDetailModel? item;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,36 +15,42 @@ class ProductDetailScreen extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const HeaderWidget(),
+                HeaderWidget(image: item?.photoUrl??"",),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const Row(
+                      Row(
                         children: [
                           Text(
-                            "Men's Printed Pullover Hoodie",
+                            item?.sku ?? "",
                             style: TextStyle(fontSize: 16, color: Colors.grey),
                           ),
                           Spacer(),
                           Text(
-                            "Price",
+                            "\$" +
+                                (item?.price ?? 0).fromGenricToString(
+                                    AppDecimalFormatConst.amountFormat),
                             style: TextStyle(fontSize: 16, color: Colors.grey),
                           ),
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const Row(
+                      Row(
                         children: [
                           Text(
-                            "Nike Club Fleese",
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            item?.name ?? "",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           Spacer(),
                           Text(
-                            "\$ 99.99",
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            "\$" +
+                                (item?.price ?? 0).fromGenricToString(
+                                    AppDecimalFormatConst.amountFormat),
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -52,7 +59,8 @@ class ProductDetailScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Size",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Spacer(),
                           Text(
@@ -75,7 +83,8 @@ class ProductDetailScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "S",
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -90,7 +99,8 @@ class ProductDetailScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "M",
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -105,7 +115,8 @@ class ProductDetailScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "L",
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -120,7 +131,8 @@ class ProductDetailScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "XL",
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -135,7 +147,8 @@ class ProductDetailScreen extends StatelessWidget {
                             child: const Center(
                               child: Text(
                                 "2XL",
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -144,7 +157,8 @@ class ProductDetailScreen extends StatelessWidget {
                       const SizedBox(height: 20),
                       const Text(
                         "Description",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
                       const Text(
@@ -156,7 +170,8 @@ class ProductDetailScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Reviews",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Spacer(),
                           Text(
@@ -166,14 +181,15 @@ class ProductDetailScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const Row(
+                      Row(
                         children: [
                           Row(
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(50)),
-                                child: Image(
-                                  image: AssetImage('assets/images/logo.png'),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                                child: AppNetworkImage(
+                                  item?.photoUrl ?? "",
                                   height: 50,
                                   width: 50,
                                   fit: BoxFit.cover,
@@ -185,7 +201,9 @@ class ProductDetailScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     "John Doe",
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   Row(
                                     children: [
@@ -197,7 +215,8 @@ class ProductDetailScreen extends StatelessWidget {
                                       SizedBox(width: 5),
                                       Text(
                                         "13 Sep, 2024",
-                                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                                        style: TextStyle(
+                                            fontSize: 14, color: Colors.grey),
                                       ),
                                     ],
                                   ),
@@ -213,10 +232,14 @@ class ProductDetailScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     "4.5",
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(width: 5),
-                                  Text("rating", style: TextStyle(fontSize: 14, color: Colors.grey)),
+                                  Text("rating",
+                                      style: TextStyle(
+                                          fontSize: 14, color: Colors.grey)),
                                 ],
                               ),
                               Row(
@@ -273,16 +296,23 @@ class ProductDetailScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Total Price",
-                      style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 3),
-                    Text('with VAT,SD', style: TextStyle(fontSize: 14, color: Colors.grey)),
+                    Text('with VAT,SD',
+                        style: TextStyle(fontSize: 14, color: Colors.grey)),
                   ],
                 ),
                 Spacer(),
                 Text(
                   "\$ 99.99",
-                  style: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -300,7 +330,10 @@ class ProductDetailScreen extends StatelessWidget {
               child: const Center(
                 child: Text(
                   "Add to Cart",
-                  style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -312,10 +345,11 @@ class ProductDetailScreen extends StatelessWidget {
 }
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({
+   HeaderWidget({
     super.key,
+    required this.image,
   });
-
+  String image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -341,7 +375,7 @@ class HeaderWidget extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Image.asset("assets/images/man.png", fit: BoxFit.contain),
+              child: AppNetworkImage(image, fit: BoxFit.contain),
             ),
             Container(
               decoration: BoxDecoration(
