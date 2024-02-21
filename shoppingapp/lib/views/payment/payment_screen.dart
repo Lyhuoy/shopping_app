@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shoppingapp/views/payment/card_screen.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -318,7 +320,11 @@ class PaymentScreen extends StatelessWidget {
             ],
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Get.to(
+                () => const CardScreen(),
+              );
+            },
             child: Container(
               height: 80,
               decoration: const BoxDecoration(
