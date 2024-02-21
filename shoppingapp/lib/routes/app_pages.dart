@@ -13,6 +13,7 @@ import 'package:shoppingapp/views/authentication/address_form.dart';
 import 'package:shoppingapp/views/payment/add_new_card.dart';
 import 'package:shoppingapp/views/payment/card_screen.dart';
 import 'package:shoppingapp/views/payment/payment_screen.dart';
+import 'package:shoppingapp/views/products/order_confirm.screen.dart';
 import 'package:shoppingapp/views/products/product_detail_screen.dart';
 part 'app_routes.dart';
 
@@ -84,6 +85,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.cardScreen,
       page: () => const CardScreen(),
-    )
+    ),
+    GetPage(
+      name: AppRoutes.orderConfirm,
+      page: () => const OrderConfirmScreen(),
+    ),
   ];
 }

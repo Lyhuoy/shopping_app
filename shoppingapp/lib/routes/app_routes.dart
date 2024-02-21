@@ -22,5 +22,6 @@ abstract class AppRoutes {
 }
 =======
   static const card = '/card';
+  static const orderConfirm = '/order-confirm';
 }
 >>>>>>> e054c6b (card screen)
