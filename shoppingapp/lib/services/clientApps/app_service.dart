@@ -30,7 +30,6 @@ class AppService implements IAppService {
     };
   }
 
-
   @override
   Future<ApiResultDto> deletesAsync<I>(
       {required String apiName,
@@ -38,7 +37,7 @@ class AppService implements IAppService {
       bool tokenRequired = true,
       String baseUrl = "",
       CancelToken? cancelToken}) async {
-    var result = ApiResultDto(response: []);
+    var result = ApiResultDto();
     try {
       baseUrl = baseUrl.isNotEmpty ? baseUrl : ApiConfigHelper.url();
       var response = await _client.deleteUri(Uri.parse(baseUrl),
@@ -57,14 +56,17 @@ class AppService implements IAppService {
   Future<ApiResultDto> getsAsync(
       {required String apiName,
       bool tokenRequired = true,
-      String baseUrl = "",
+      String token = "",
       CancelToken? cancelToken}) async {
-    var result = ApiResultDto(response: []);
+    var result = ApiResultDto();
     try {
-      baseUrl = baseUrl.isNotEmpty ? baseUrl : ApiConfigHelper.url();
-      var response = await _client.getUri(Uri.parse(baseUrl),
-          options: ApiConfigHeader.getOptionHeader(), cancelToken: cancelToken);
-      result.result = ApiOutput.fromJson(response.data);
+      var response = await _client.getUri(
+          Uri.parse(ApiConfigHelper.url(apiName: apiName)),
+          options: ApiConfigHeader.getOptionHeader(token: token),
+          cancelToken: cancelToken);
+      result = ApiResultDto.fromMap(response.data);
+      result.status = response.statusMessage ?? "";
+      result.statusCode = response.statusCode;
       return result;
     } on DioException catch (e) {
       result.error = ApiResultError(message: e.message!);
@@ -78,7 +80,7 @@ class AppService implements IAppService {
       bool tokenRequired = true,
       String baseUrl = "",
       CancelToken? cancelToken}) async {
-    var result = ApiResultDto(response: []);
+    var result = ApiResultDto();
     try {
       baseUrl = baseUrl.isNotEmpty ? baseUrl : ApiConfigHelper.url();
       var response = await _client.getUri(Uri.parse(baseUrl),
@@ -98,7 +100,7 @@ class AppService implements IAppService {
       bool tokenRequired = true,
       String baseUrl = "",
       CancelToken? cancelToken}) async {
-    var result = ApiResultDto(response: []);
+    var result = ApiResultDto();
     try {
       baseUrl =
           baseUrl.isNotEmpty ? baseUrl : ApiConfigHelper.url(apiName: apiName);
@@ -129,7 +131,6 @@ class AppService implements IAppService {
     }
   }
 
-
   @override
   Future<ApiResultDto> putsAsync<I>(
       {required String apiName,
@@ -137,7 +138,7 @@ class AppService implements IAppService {
       bool tokenRequired = true,
       String baseUrl = "",
       CancelToken? cancelToken}) async {
-    var result = ApiResultDto(response: []);
+    var result = ApiResultDto();
     try {
       baseUrl = baseUrl.isNotEmpty ? baseUrl : ApiConfigHelper.url();
       var response = await _client.putUri(Uri.parse(baseUrl),

@@ -1,15 +1,16 @@
 part of 'app_pages.dart';
 
 abstract class AppRoutes {
-  static const main = '/';
-  static const login = '/login';
-  static const dev = '/dev';
-  static const onboarding = '/onboarding';
-  static const start = '/start';
-  static const authLogin = '/auth-login';
-  static const authRegister = '/auth-register';
-  static const forgetPassword = '/forget-password';
-  static const homeWelcome = '/home-welcome';
-  static const verificationCode = '/verification-code';
-  static const newPassword = '/new-password';
+  static const String main = '/';
+  static const String login = '/login';
+  static const String dev = '/dev';
+  static const String onboarding = '/onboarding';
+  static const String start = '/start';
+  static const String authLogin = '/auth-login';
+  static const String authRegister = '/auth-register';
+  static const String forgetPassword = '/forget-password';
+  static const String homeWelcome = '/home-welcome';
+  static const String verificationCode = '/verification-code';
+  static const String newPassword = '/new-password';
+  static const String brandListScreen = "brandListScreen";
 }
