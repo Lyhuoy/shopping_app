@@ -16,7 +16,7 @@ void main() async {
   //     AppPages.init = AppRoutes.main;
   //   }
   // }
-  AppPages.init = AppRoutes.onboarding;
+  AppPages.init = AppRoutes.main;
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

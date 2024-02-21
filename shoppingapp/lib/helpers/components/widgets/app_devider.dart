@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ContainerDevider {
+class AppDevider {
   static SizedBox get blankSpaceS => const SizedBox(height: 5, width: 5);
   static SizedBox get blankSpaceM => const SizedBox(height: 10, width: 10);
   static SizedBox get blankSpaceL => const SizedBox(height: 15, width: 15);

@@ -28,8 +28,8 @@ class HomeScreenDrawer extends StatelessWidget {
                   child: Column(
                     children: [
                       _userProfile(),
-                      ContainerDevider.blankSpaceL,
-                      ContainerDevider.blankSpaceL,
+                      AppDevider.blankSpaceL,
+                      AppDevider.blankSpaceL,
                       HomeScreenDrawerListItem(
                           onTap: () => _controller.logout(),
                           trialing: const Icon(
@@ -40,7 +40,7 @@ class HomeScreenDrawer extends StatelessWidget {
                           label: "${"Logout".tr} ",
                           labelColor: AppColors.error,
                           margin: const EdgeInsets.symmetric(horizontal: 15)),
-                      ContainerDevider.blankSpaceL,
+                      AppDevider.blankSpaceL,
                     ],
                   ),
                 ),
@@ -128,7 +128,7 @@ class HomeScreenDrawer extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    ContainerDevider.blankSpaceM,
+                    AppDevider.blankSpaceM,
                     Text(
                       "Username",
                       style: AppTextStyle.header.copyWith(fontSize: 22),

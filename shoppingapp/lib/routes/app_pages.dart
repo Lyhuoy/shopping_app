@@ -26,7 +26,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.main,
-      page: () => const HomeScreen(),
+      page: () => const MainScreen(),
     ),
     GetPage(
       name: AppRoutes.onboarding,

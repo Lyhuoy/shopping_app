@@ -86,7 +86,7 @@ class _AppListListItemWidgetState extends State<AppListListItemWidget> {
             children: [
               if (widget.leading != null) ...[
                 widget.leading!,
-                ContainerDevider.blankSpaceS
+                AppDevider.blankSpaceS
               ],
               Expanded(
                 child: Padding(
@@ -117,7 +117,7 @@ class _AppListListItemWidgetState extends State<AppListListItemWidget> {
                         ),
                       ],
                       if (widget.description != null) ...[
-                        ContainerDevider.blankSpaceS,
+                        AppDevider.blankSpaceS,
                         Text(
                           widget.description!,
                           style: const TextStyle(
@@ -127,11 +127,11 @@ class _AppListListItemWidgetState extends State<AppListListItemWidget> {
                         ),
                       ],
                       if (widget.child != null) ...[
-                        ContainerDevider.blankSpaceM,
+                        AppDevider.blankSpaceM,
                         widget.child!
                       ],
                       if (widget.children != null) ...[
-                        ContainerDevider.blankSpaceM,
+                        AppDevider.blankSpaceM,
                         Wrap(children: widget.children!)
                       ]
                     ],

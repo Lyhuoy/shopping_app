@@ -85,12 +85,12 @@ class _AppHomeListItemWidgetState extends State<AppHomeListItemWidget> {
                           ),
                         ),
                         if (widget.label.isNotEmpty) ...[
-                          ContainerDevider.blankSpaceS,
+                          AppDevider.blankSpaceS,
                           ...widget.label
                         ]
                       ],
                     ),
-                    ContainerDevider.blankSpaceS,
+                    AppDevider.blankSpaceS,
                     SizedBox(
                       width: Get.width - 140,
                       child: Text(
@@ -103,7 +103,7 @@ class _AppHomeListItemWidgetState extends State<AppHomeListItemWidget> {
                       ),
                     ),
                     if (widget.children != null) ...[
-                      ContainerDevider.blankSpaceM,
+                      AppDevider.blankSpaceM,
                       Wrap(children: widget.children!)
                     ]
                   ],

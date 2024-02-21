@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class ContainerBlur extends StatelessWidget {
-  const ContainerBlur({
+class AppContainerBlur extends StatelessWidget {
+  const AppContainerBlur({
     Key? key,
     required this.child,
     this.decoration,
