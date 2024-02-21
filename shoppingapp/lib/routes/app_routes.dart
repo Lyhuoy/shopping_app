@@ -12,4 +12,5 @@ abstract class AppRoutes {
   static const homeWelcome = '/home-welcome';
   static const verificationCode = '/verification-code';
   static const newPassword = '/new-password';
+  static const productDetail = '/product-detail';
 }
