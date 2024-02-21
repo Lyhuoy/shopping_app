@@ -6,8 +6,13 @@ import 'package:shoppingapp/views/authentication/new_password_screen.dart';
 import 'package:shoppingapp/views/authentication/sign_up_screen.dart';
 import 'package:shoppingapp/views/authentication/start_screen.dart';
 import 'package:shoppingapp/views/authentication/verification_code_screen.dart';
+import 'package:shoppingapp/views/cart/cart_screen.dart';
 import 'package:shoppingapp/views/homes/home_welcome_screen.dart';
 import 'package:shoppingapp/views/onboardings/onboarding_screen.dart';
+import 'package:shoppingapp/views/authentication/address_form.dart';
+import 'package:shoppingapp/views/payment/add_new_card.dart';
+import 'package:shoppingapp/views/payment/payment_screen.dart';
+import 'package:shoppingapp/views/products/product_detail_screen.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -53,7 +58,27 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.newPassword,
-      page: () => NewPasswordScreen(),
+      page: () => const NewPasswordScreen(),
     ),
+    GetPage(
+      name: AppRoutes.addressForm,
+      page: () => const AddressForm(),
+    ),
+    GetPage(
+      name: AppRoutes.addNewCard,
+      page: () => const AddNewCard(),
+    ),
+    GetPage(
+      name: AppRoutes.productDetail,
+      page: () => const ProductDetailScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.cart,
+      page: () => const CartScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.payment,
+      page: () => const PaymentScreen(),
+    )
   ];
 }

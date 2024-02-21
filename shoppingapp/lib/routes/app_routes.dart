@@ -13,4 +13,7 @@ abstract class AppRoutes {
   static const String verificationCode = '/verification-code';
   static const String newPassword = '/new-password';
   static const String brandListScreen = "brandListScreen";
+  static const productDetail = '/product-detail';
+  static const cart = '/cart';
+  static const payment = '/payment';
 }
