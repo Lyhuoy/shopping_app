@@ -17,5 +17,6 @@ class AuthApiInputDto {
     data['rememberMe'] = input.rememberMe;
     return data;
   }
-  
+   static String toParamString(AuthLoginInputModel input) => "?email=${input.userName}&password=${input.password}";
+
 }

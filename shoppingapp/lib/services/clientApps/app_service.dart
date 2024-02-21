@@ -112,6 +112,8 @@ class AppService implements IAppService {
         cancelToken: cancelToken,
       );
       result = ApiResultDto.fromMap(response.data);
+      result.status = response.statusMessage ?? "";
+      result.statusCode = response.statusCode;
       return result;
     } on DioException catch (e) {
       e.printError();

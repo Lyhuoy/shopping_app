@@ -17,7 +17,12 @@ void main() async {
   //     AppPages.init = AppRoutes.main;
   //   }
   // }
-  AppPages.init = AppRoutes.main;
+  if (LoginTemp.token.isNotEmpty && LoginTemp.user.id != 0) {
+    AppPages.init = AppRoutes.main;
+  } else {
+    AppPages.init = AppRoutes.onboarding;
+  }
+   AppPages.init = AppRoutes.main;
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -30,7 +35,8 @@ void main() async {
 
 /// initialize hive
 Future<void> hiveInitialize() async {
-  final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
+  final appDocumentDirectory =
+      await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(appDocumentDirectory.path);
   Hive.registerAdapter(LanguageCacheModelAdapter());
   Hive.registerAdapter(UserCacheModelAdapter());

@@ -47,9 +47,7 @@ class HomeScreenState extends State<HomeScreen>
           AppDevider.blankSpaceL,
           HomeBrandView(brandList: _controller.brandList),
           AppDevider.blankSpaceL,
-          HomeProductView(
-            prodcutList:_controller.homeProduct,
-          )
+          HomeProductView(),
         ],
       ),
     );

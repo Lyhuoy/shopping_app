@@ -32,7 +32,7 @@ class HomeScreenController extends AppBaseController {
   set brandList(List<BrandModel> value) => _brandList.value = value;
 
   final _homeProduct = <ProductDetailModel>[].obs;
-  List<ProductDetailModel> get homeProduct => _homeProduct.value;
+  List<ProductDetailModel> get homeProduct => _homeProduct;
   set homeProduct(List<ProductDetailModel> value) => _homeProduct.value = value;
 
 //#endregion

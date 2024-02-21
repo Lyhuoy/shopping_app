@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoppingapp/core.dart';
 import 'package:shoppingapp/views/products/product_detail_screen.dart';
 
 class HomeWelcomeScreen extends StatelessWidget {
@@ -92,7 +93,7 @@ class HomeWelcomeScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => const ProductDetailScreen());
+                        Get.offAllNamed(AppRoutes.main);
                       },
                       child: Center(
                         child: Text(
