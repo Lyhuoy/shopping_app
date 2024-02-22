@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:shoppingapp/core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:shoppingapp/views/homes/home_brand_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,59 +11,68 @@ class HomeScreen extends StatefulWidget {
   HomeScreenState createState() => HomeScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   // ignore: unused_field
   final _controller = Get.put(HomeScreenController());
-  final _mainKey = GlobalKey<ScaffoldState>();
   bool smallScreen = Get.height < 600;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.pageBackground,
-        key: _mainKey,
-        drawer: HomeScreenDrawer(),
-        drawerEnableOpenDragGesture: false,
-        appBar: AppBar(
-          leading: InkWell(
-            onTap: () => _mainKey.currentState?.openDrawer(),
-            child: const Icon(
-              Icons.menu,
-              size: 25,
-            ),
+      appBar: AppBar(
+        title: _appTitle,
+        actions: [
+          AppButton.circle(
+            iconData: CupertinoIcons.bag,
+            color: AppColors.itemBackgroundColro,
+            iconColor: AppColors.textPrimary,
+            onPressed: () {
+              _controller.getProductAsync();
+            },
           ),
-          titleSpacing: 0,
-          title: smallScreen ? _appTitle : null,
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (!smallScreen)
-              Container(
-                padding: const EdgeInsets.only(left: 15, bottom: 15, right: 15),
-                color: Colors.white,
-                child: _appTitle,
-              ),
-            Expanded(
-              child: SmartRefresher(
-                controller: _controller.homeRefreshController,
-                onRefresh: _controller.onHomeRefresh,
-              ),
-            ),
-          ],
-        ));
+          AppDevider.blankSpaceL,
+        ],
+      ),
+      backgroundColor: Colors.white,
+      body: bodyBuilder(),
+    );
+  }
+
+  Widget bodyBuilder() {
+    return Obx(
+      () => ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          AppDevider.blankSpaceL,
+          HomeBrandView(brandList: _controller.brandList),
+          AppDevider.blankSpaceL,
+          HomeProductView(),
+        ],
+      ),
+    );
   }
 
   Widget get _appTitle => RichText(
         text: TextSpan(
-          style: TextStyle(
-            color: AppColors.appBarTextColor,
-            fontWeight: FontWeight.w300,
+          style: const TextStyle(
+            color: AppColors.textPrimary,
+            fontWeight: FontWeight.w500,
             fontSize: 21,
           ),
-          children: const [
-            TextSpan(text: "Wellcome "),
-            TextSpan(text: "Kunthy", style: TextStyle(fontWeight: FontWeight.w500))
+          children: [
+            TextSpan(
+              text: "${_controller.userName} \n",
+            ),
+            TextSpan(
+              text:
+                  "WellcomeToAppName".tr.replaceAll("AppName", "Shopping App"),
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 13,
+                color: AppColors.textSubTitleF12,
+              ),
+            ),
           ],
         ),
       );

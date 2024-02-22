@@ -13,6 +13,7 @@ class AppNetworkImage extends StatelessWidget {
   final BoxShape shap;
   final BoxFit fit;
   final double roundCordner;
+  final Color? color;
 
   const AppNetworkImage(
     this.imageUrl, {
@@ -20,9 +21,10 @@ class AppNetworkImage extends StatelessWidget {
     this.width,
     this.height,
     this.errorWidget,
+    this.color,
     this.fit = BoxFit.cover,
     this.shap = BoxShape.rectangle,
-    this.roundCordner = AppSizeStyle.defaultRoundLg
+    this.roundCordner = AppSizeStyle.defaultRoundLg,
   }) : super(key: key);
 
   // const BorderRadius.all(
@@ -36,6 +38,7 @@ class AppNetworkImage extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
+        color: color,
         shape: shap,
         borderRadius: shap == BoxShape.rectangle
             ? BorderRadius.all(Radius.circular(roundCordner))
@@ -53,7 +56,7 @@ class AppNetworkImage extends StatelessWidget {
               width: width,
               height: height,
             ),
-        placeholder: (context, url) =>const SkeletonAvatar(
+        placeholder: (context, url) => const SkeletonAvatar(
           style: SkeletonAvatarStyle(),
         ),
       ),

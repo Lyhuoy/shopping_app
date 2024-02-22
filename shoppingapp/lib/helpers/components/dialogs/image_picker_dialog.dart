@@ -30,12 +30,12 @@ class ImagePickerDialog extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ContainerDevider.blankSpaceS,
+                AppDevider.blankSpaceS,
                 Text(
                   "UploadImage".tr,
                   style: AppTextStyle.title,
                 ),
-                ContainerDevider.blankSpaceS,
+                AppDevider.blankSpaceS,
                 TextButton(
                   onPressed: onTakePressed,
                   child: Padding(
@@ -48,7 +48,7 @@ class ImagePickerDialog extends StatelessWidget {
                           color: AppColors.textPrimary,
                           size: 16,
                         ),
-                        ContainerDevider.blankSpaceL,
+                        AppDevider.blankSpaceL,
                         Text(
                           'TakePhoto'.tr,
                           textAlign: TextAlign.start,
@@ -70,7 +70,7 @@ class ImagePickerDialog extends StatelessWidget {
                           color: AppColors.textPrimary,
                           size: 16,
                         ),
-                        ContainerDevider.blankSpaceL,
+                        AppDevider.blankSpaceL,
                         Text(
                           'BrowseFromPhone'.tr,
                           textAlign: TextAlign.start,

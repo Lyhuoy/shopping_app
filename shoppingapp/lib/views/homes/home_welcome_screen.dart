@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoppingapp/core.dart';
 import 'package:shoppingapp/views/products/product_detail_screen.dart';
 
 class HomeWelcomeScreen extends StatelessWidget {
@@ -12,9 +13,9 @@ class HomeWelcomeScreen extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
+          color: Color(0xFF9775FA),
           image: DecorationImage(
-            // replace with your own image
-            image: NetworkImage('https://www.popular.com.kh/wp-content/uploads/2023/08/365407130_841042997587791_2351583943190246669_n.jpg'),
+            image: AssetImage("assets/images/welcome.jpeg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -82,7 +83,7 @@ class HomeWelcomeScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => const ProductDetailScreen());
+                        Get.offAllNamed(AppRoutes.main);
                       },
                       child: Center(
                         child: Text(

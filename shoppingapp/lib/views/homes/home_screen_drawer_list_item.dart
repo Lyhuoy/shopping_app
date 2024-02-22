@@ -68,7 +68,7 @@ class _HomeScreenDrawerListItemState extends State<HomeScreenDrawerListItem> {
               children: [
                 if (widget.leading != null) ...[
                   widget.leading!,
-                  ContainerDevider.blankSpaceL
+                  AppDevider.blankSpaceL
                 ],
                 Expanded(
                   child: widget.child ??
@@ -78,7 +78,7 @@ class _HomeScreenDrawerListItemState extends State<HomeScreenDrawerListItem> {
                       ),
                 ),
                 if (widget.trialing != null) ...[
-                  ContainerDevider.blankSpaceL,
+                  AppDevider.blankSpaceL,
                   widget.trialing!
                 ] else ...[
                   const Icon(

@@ -1,21 +1,24 @@
 import 'dart:convert';
 
 class ApiResultDto {
+ 
   dynamic result;
-  List<String> response =[];
   String targetUrl;
   bool success;
   String status;
+  int? statusCode;
+  String message;
   dynamic error;
   bool unAuthorizedRequest;
   bool abp;
   ApiResultDto({
     this.result,
-    required this.response,
     this.targetUrl = '',
     this.success = false,
+    this.message = '',
     this.error,
     this.status = '',
+    this.statusCode,
     this.unAuthorizedRequest = false,
     this.abp = false,
   });
@@ -33,15 +36,16 @@ class ApiResultDto {
 
   factory ApiResultDto.fromMap(Map<String, dynamic> map) {
     return ApiResultDto(
-      result: map['Result'] ?? map['results'],
-      response: [],
+      result: map['data'],
       targetUrl: map['TargetUrl'] ?? '',
-      success: map['Success'] ?? false,
-      status: map['status'] ?? '',
+      success: map['status'] ?? false,
+      status: '${map['status']}',
+      message: map['message'] ??'',
       error:
           map['Error'] != null ? ApiResultError.fromJson(map['Error']) : null,
       unAuthorizedRequest: map['UnAuthorizedRequest'] ?? false,
       abp: map['_abp'] ?? false,
+
     );
   }
 

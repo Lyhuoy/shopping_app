@@ -1,29 +1,20 @@
-
 import 'package:shoppingapp/core.dart';
 import 'package:get/get.dart';
 
 class AuthenticateService extends AppService implements IAuthenticateService {
-
   @override
-  Future<ResultModel<AuthLoginOutputModel>> loginAsync(
-      AuthLoginInputModel input) async {
+  Future<ResultModel<UserDto>> loginAsync(AuthLoginInputModel input) async {
     try {
-      var resultDto = ResultModel<AuthLoginOutputModel>();
-      var version = ApiBaseVersion(
-        value: AuthApiInputDto.toJson(input),
-        version: VersionNumber.version1,
-      );
-      var inputJson = version.toJson();
+      var resultDto = ResultModel<UserDto>();
+
       var response = await postsAsync(
-        apiName: ApiName.authenticateLogin,
-        input: inputJson,
+        apiName: "${ApiName.authenticateLogin}${AuthApiInputDto.toParamString(input)}",
+        input: AuthApiInputDto.toJson(input)
       );
-      if (response.success) {
-        var authenticateLogin = AuthLoginOutputModel.create(
-          AuthApiOutputDto.fromJson(response.result),
-        );
-        
-        return ResultModel(result: authenticateLogin, success: true);
+      if (response.success && response.result != null) {
+        LoginTemp.token = response.result;
+        await getUserAsyn();
+        return ResultModel(result: LoginTemp.user, success: true);
       } else if (response.error != null) {
         return ResultModel(error: response.error);
       }
@@ -42,5 +33,20 @@ class AuthenticateService extends AppService implements IAuthenticateService {
   @override
   Future<void> logoutAsync() async {
     Get.offAll(() => const HomeScreen());
+  }
+
+  @override
+  Future<UserDto> getUserAsyn() async {
+    try {
+      var response = await getsAsync(
+          apiName: ApiName.authenticateLogin, token: LoginTemp.token);
+      if (response.success && response.result != null) {
+        LoginTemp.user = UserDto.fromJson(response.result);
+      }
+      return LoginTemp.user;
+    } on Exception catch (e) {
+      e.printError();
+      return LoginTemp.user;
+    }
   }
 }

@@ -1,8 +1,10 @@
-
-
 import 'package:shoppingapp/core.dart';
 
 abstract class IAuthenticateService {
-  Future<ResultModel<AuthLoginOutputModel>> loginAsync(AuthLoginInputModel input);
+  Future<ResultModel<UserDto>> loginAsync(
+    AuthLoginInputModel input,
+  );
   Future<void> logoutAsync();
+
+  Future<UserDto> getUserAsyn();
 }

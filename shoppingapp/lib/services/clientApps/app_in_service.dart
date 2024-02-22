@@ -17,7 +17,6 @@ abstract class IAppService {
   Future<ApiResultDto> getsAsync(
       {required String apiName,
       bool tokenRequired = true,
-      String baseUrl = "",
       CancelToken? cancelToken});
 
       Future<dynamic> getDynamicAsync(

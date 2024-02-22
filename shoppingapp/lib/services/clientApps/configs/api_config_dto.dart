@@ -1,9 +1,7 @@
 import 'package:dio/dio.dart';
 
-import 'api_name_dto.dart';
-
 class ApiConfigHelper{
-  static String url({String apiName=''}) => "https://${ApiName.baseurl}/api/$apiName";
+  static String url({String apiName=''}) => "http://206.189.144.45:8011/api/$apiName";
   static String clientDomain = "";
 }
 

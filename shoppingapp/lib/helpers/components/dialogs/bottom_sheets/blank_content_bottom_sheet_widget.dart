@@ -35,7 +35,7 @@ class BlankContentBottomSheetWidget extends StatelessWidget {
                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ContainerDevider.blankSpaceX,
+                  AppDevider.blankSpaceX,
                   Text(title ?? ''),
                   const CloseButton(
                     color: Colors.grey,

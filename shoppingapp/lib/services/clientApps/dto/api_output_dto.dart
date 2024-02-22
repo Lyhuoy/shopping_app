@@ -5,6 +5,7 @@ class ApiOutput {
   String targetUrl;
   bool success;
   String status;
+  String message;
   dynamic error;
   bool unAuthorizedRequest;
   bool abp;
@@ -12,6 +13,7 @@ class ApiOutput {
     this.result,
     this.targetUrl = '',
     this.success = false,
+    this.message = '',
     this.error,
     this.status = '',
     this.unAuthorizedRequest = false,
@@ -31,10 +33,11 @@ class ApiOutput {
 
   factory ApiOutput.fromMap(Map<String, dynamic> map) {
     return ApiOutput(
-      result: map['Result'] ?? map['results'],
+      result: map['data'],
       targetUrl: map['TargetUrl'] ?? '',
-      success: map['Success'] ?? false,
-      status: map['status'] ?? '',
+      success: map['status'] ?? false,
+      status: '${map['status']}',
+      message: map['message'] ??'',
       error:
           map['Error'] != null ? ApiOutputError.fromJson(map['Error']) : null,
       unAuthorizedRequest: map['UnAuthorizedRequest'] ?? false,
