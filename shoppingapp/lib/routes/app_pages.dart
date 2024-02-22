@@ -83,10 +83,6 @@ class AppPages {
       page: () => const PaymentScreen(),
     ),
     GetPage(
-      name: AppRoutes.card,
-      page: () => const CardScreen(),
-    ),
-    GetPage(
       name: AppRoutes.orderConfirm,
       page: () => const OrderConfirmScreen(),
     ),

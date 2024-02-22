@@ -296,7 +296,7 @@ class CardScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          "Save card info",
+                          "Save as default payment",
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
                         ),
                         Transform.scale(
@@ -327,7 +327,7 @@ class CardScreen extends StatelessWidget {
               ),
               child: const Center(
                 child: Text(
-                  "Save card",
+                  "Select Payment",
                   style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
