@@ -18,4 +18,7 @@ abstract class AppRoutes {
   static const payment = '/payment';
   static const addressForm = '/addressForm';
   static const addNewCard = '/addNewCard';
+
+  static const card = '/card';
+  static const orderConfirm = '/order-confirm';
 }
